@@ -1,6 +1,4 @@
-5
-5009
-7
-9876
-10000
-10
+3
+Dodecahedron
+Octahedron
+Octahedron
