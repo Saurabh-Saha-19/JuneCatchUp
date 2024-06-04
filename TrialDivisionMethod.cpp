@@ -6,14 +6,22 @@ using namespace std;
 #define floop2(a,b) for(int i=a; i<=b; i++)
 
 void solve() {
-	int n; cin >> n;
+	ll n; cin >> n;
 	vector<int> primeFactors;
 
 	for (long long d = 2; d * d <= n; d++) {
-		while (n % d == 0) {
+		if (n % d == 0) {
 			primeFactors.push_back(d);
-			n /= d;
+
+			while (n % d == 0) {
+				n /= d;
+			}
 		}
+
+	}
+
+	for (ll i = 0; i < primeFactors.size(); i++) {
+		cout << primeFactors[i] << " ";
 	}
 }
 

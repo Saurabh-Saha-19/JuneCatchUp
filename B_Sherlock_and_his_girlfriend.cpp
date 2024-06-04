@@ -33,7 +33,28 @@ vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 void solve() {
+	int n;
+	cin >> n;
+	if (n == 1) {
+		cout << 1 << nline;
+		cout << 1 << nline;
+		return;
+	}
+	vector<ll> sA (n + 2, 1);
 
+	for (int i = 2; i <= n + 1; i++) {
+		if (sA[i] == 1) {
+			for (int j = 2 * i; j <= n + 1; j += i) {
+				sA[j] = 2;
+			}
+		}
+	}
+
+	n > 2 ? cout << 2 << nline : cout << 1 << nline;
+	for (int i = 2; i <= n + 1; i++) {
+		cout << sA[i] << " ";
+	}
+	cout << nline;
 
 }
 int main() {

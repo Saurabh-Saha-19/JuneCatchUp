@@ -27,15 +27,39 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef long double lld;
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-vector<ll> sieve(int n) {int*arr = new int[n + 1](); vector<ll> vect; for (int i = 2; i <= n; i++)if (arr[i] == 0) {vect.push_back(i); for (int j = 2 * i; j <= n; j += i)arr[j] = 1;} return vect;}
-
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
 void solve() {
-
-
+	ll n;
+	cin >> n;
+	ll ans = 0;
+	for (ll i = 2; i <= n; i++) {
+		ll num = i;
+		ll count = 0;
+		for (ll j = 2; j * j <= num; j++) {
+			if (num % j == 0) {
+				count ++;
+				while ((num % j) == 0) {
+					num = num / j;
+				}
+			}
+			if (count > 2) break;
+		}
+		if (num > 1) {
+			count++;
+		}
+		if (count == 2) {
+			ans ++;
+		}
+	}
+	cout << ans << nline;
 }
 int main() {
+	fastio();
+	auto start1 = high_resolution_clock::now();
 	solve();
+	auto stop1 = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop1 - start1);
+#ifdef Priyansh31dec
+	cerr << "Time: " << duration . count() / 1000 << endl;
+#endif
 }
